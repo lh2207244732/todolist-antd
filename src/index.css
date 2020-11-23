@@ -2,29 +2,7 @@
     margin: 0;
     padding: 0;
 }
-li{
-    list-style: none;
-}
 .app{
     width: 960px;
-    margin: 50px auto auto auto;
-}
-.app .head{
-    margin-bottom: 50px;
-}
-.app .head input{
-    width: 600px;
-    height: 40px;
-    font-size: 20px;
-}
-.app .head button{
-    height: 40px;
-}
-.app .list .item{
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    border-bottom: 1px dashed #ccc;
-}
-.app .list .item:hover{
-    background-color: #ccc;
+    margin: 0 auto;
 }
