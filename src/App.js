@@ -1,13 +1,9 @@
 import React from 'react'
-import axios from 'axios'
-import regeneratorRuntime from "regenerator-runtime";
-
-  
 
 import store from './store/store'
 import AppUi from './appui'
 
-import {getChangeAction,getAddAction,getDeleteAction,getLoadAction} from './store/actionCreate'
+import { getChangeAction, getAddAction, getDeleteAction, getLoadAction } from './store/actionCreate'
 
 
 
@@ -25,38 +21,39 @@ export default class App extends React.Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleAdd = this.handleAdd.bind(this)
-        this.deleteItem=this.deleteItem.bind(this)
+        this.deleteItem = this.deleteItem.bind(this)
 
     }
-    
+
 
     handleChange(event) {
         store.dispatch(getChangeAction(event.target.value))
     }
     handleAdd() {
-        const id=Date.now()
+        const id = Date.now()
         store.dispatch(getAddAction(id))
     }
     deleteItem(id) {
         store.dispatch(getDeleteAction(id))
     }
 
-    async componentDidMount() {
-        const result = await axios.get('http://127.0.0.1:3000')
+    componentDidMount() {
+        // const result = await axios.get('http://127.0.0.1:3000')
         //请求成功后用dispatch派发一个action
-        store.dispatch(getLoadAction(result.data))
+        // store.dispatch(getLoadAction(result.data))
+        store.dispatch(getLoadAction())
     }
 
     render() {
         const { task, list } = this.state
         return (
-           <AppUi 
-            task={task}
-            list={list}
-            handleChange={this.handleChange}
-            handleAdd={this.handleAdd}
-            deleteItem={this.deleteItem}
-           />
+            <AppUi
+                task={task}
+                list={list}
+                handleChange={this.handleChange}
+                handleAdd={this.handleAdd}
+                deleteItem={this.deleteItem}
+            />
         )
     }
 }
