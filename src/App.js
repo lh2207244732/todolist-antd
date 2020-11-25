@@ -18,30 +18,19 @@ class App extends React.Component {
         store.subscribe(() => {
             this.setState(store.getState())
         })
-
-        this.handleChange = this.handleChange.bind(this)
-        this.handleAdd = this.handleAdd.bind(this)
-        this.deleteItem = this.deleteItem.bind(this)
-
     }
     componentDidMount() {
         store.dispatch(getLoadAction())
     }
-
-
-  
-
-    
-
     render() {
-        const { task, list } = this.state
+        const { task, list,handleChange,handleAdd,deleteItem } = this.state
         return (
             <AppUi
                 task={task}
                 list={list}
-                handleChange={this.handleChange}
-                handleAdd={this.handleAdd}
-                deleteItem={this.deleteItem}
+                handleChange={handleChange}
+                handleAdd={handleAdd}
+                deleteItem={deleteItem}
             />
         )
     }
