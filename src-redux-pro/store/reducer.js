@@ -4,8 +4,7 @@ const defaultState = {
     list: [{ id: 1, task: 'redux' }],
     task: ''
 }
-function counter(state = defaultState, action) {
-
+function reducer(state = defaultState, action) {
 
     let newState = JSON.parse(JSON.stringify(state))
 
@@ -35,4 +34,4 @@ function counter(state = defaultState, action) {
     return newState
 }
 
-export default counter
+export default reducer
